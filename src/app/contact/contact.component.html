@@ -15,17 +15,52 @@
       
       <!-- name -->
       <div class="field">
-        <input type="text" name="name" class="input" placeholder="Your Name" [(ngModel)]="name">
+        <input 
+          type="text" 
+          name="name" 
+          class="input" 
+          placeholder="Your Name" 
+          [(ngModel)]="name"
+          #nameInput="ngModel"
+          required
+          minlength="3">
+
+          <div class="help is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+            Your name is required and must be at least 3 characters long.
+          </div>
       </div>
 
       <!-- email -->
       <div class="field">
-        <input type="email" class="input" name="email" placeholder="Your Email" [(ngModel)]="email">
+        <input 
+          type="email" 
+          class="input" 
+          name="email" 
+          placeholder="Your Email" 
+          [(ngModel)]="email"
+          required
+          email
+          #emailInput="ngModel">
+
+          <div class="help is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+            Your email is required.
+          </div>
       </div>
 
       <!-- message -->
       <div class="field">
-        <textarea name="message" placeholder="what's on your mind?" class="textarea" [(ngModel)]="message"></textarea>
+        <textarea 
+          name="message" 
+          placeholder="what's on your mind?" 
+          class="textarea" 
+          [(ngModel)]="message"
+          required
+          #messageInput="ngModel">
+        </textarea>
+
+        <div class="help is-error" *ngIf="messageInput.invalid && messageInput.dirty">
+          Your message is required!
+        </div>
       </div>
 
       <!-- submit button -->
