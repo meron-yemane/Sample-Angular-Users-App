@@ -7,11 +7,15 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
 
   // API URL for retrieving user JSON data
-  apiUrl = 'https://api.github.com/users?per_page=10';
+  apiUrl = 'https://api.github.com/users';
 
   constructor(private http: HttpClient) {}
     
   getUsers() {
-    return this.http.get(`${this.apiUrl}`); 
+    return this.http.get(`${this.apiUrl}?per_page=10`); 
+  }
+
+  getUser(username: string) {
+    return this.http.get(`${this.apiUrl}/${username}`)
   }
 }
