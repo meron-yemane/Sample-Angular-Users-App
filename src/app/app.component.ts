@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -15,5 +16,7 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'my-angular-app';
+  constructor(private http: HttpClient) {
+    
+  }
 }
